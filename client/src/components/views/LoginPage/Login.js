@@ -26,7 +26,7 @@ function Login(props) {
     };
 
     dispatch(loginUser(body)).then((res) => {
-      if (res.payload.loginSuccess) {
+      if (res.payload.success) {
         props.history.push("/");
       } else {
         alert("Error");
