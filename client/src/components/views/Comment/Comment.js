@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CommentList from "./CommentList.js";
 
@@ -10,23 +10,17 @@ function User(id, comment) {
 function Comment({ key, movieId }) {
   console.log("movieId값은 ", movieId, "입니다.");
   const [comment, setComment] = useState("");
+  const [commentList, setcommentList] = useState([]);
 
   const onCommentHandler = (e) => {
     setComment(e.currentTarget.value);
   };
 
-  const values = {
-    comment: comment,
-  };
-
   const onSubmit = (event) => {
-<<<<<<< HEAD
-=======
     const values = {
       comment: comment,
-      movieId : movieId
+      movieId: movieId,
     };
->>>>>>> cdd545a6d925bb041ebdc85070185fca17cdbddd
     event.preventDefault();
     axios.post("/api/comments/upload", values).then((value) => {
       if (value.data.success) {
@@ -36,28 +30,18 @@ function Comment({ key, movieId }) {
       }
     });
   };
-<<<<<<< HEAD
-  return (
-    <div className="comment">
-      <section className="history">
-        <CommentList />
-      </section>
-=======
 
   useEffect(() => {
-    axios.post('/api/comments/get', {movieId})
-    .then(result => {
-       if(result.data.comments){
-         //console.log(result.data.comments)
-         setcommentList(result.data.comments);
-       }
-    })
-  }, [])
+    axios.post("/api/comments/get", { movieId }).then((result) => {
+      if (result.data.comments) {
+        console.log(result.data.comments);
+        setcommentList(result.data.comments);
+      }
+    });
+  }, []);
 
   return (
     <div className="comment">
-
->>>>>>> cdd545a6d925bb041ebdc85070185fca17cdbddd
       <section className="current">
         <form onSubmit={onSubmit}>
           <label>댓글달기</label>
@@ -72,14 +56,11 @@ function Comment({ key, movieId }) {
         </form>
       </section>
 
-
       <section className="history">
-      {commentList.map(comment => {
-          return <CommentList comment={comment}/>
-      })}  
+        {commentList.map((comment) => {
+          return <CommentList comment={comment} />;
+        })}
       </section>
-
-
     </div>
   );
 }
