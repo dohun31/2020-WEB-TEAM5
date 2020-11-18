@@ -7,7 +7,7 @@ function Logout() {
     cookie.remove("id");
     window.location.reload();
   }
-  return "로그아웃되었습니다";
+  return <div>logout!!</div>;
 }
 
 export default Logout;

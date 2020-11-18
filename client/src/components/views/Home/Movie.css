@@ -43,13 +43,6 @@ body {
   display: lnline;
 }
 
-
-span{
-  display: flex;
-  justify-content: center;
-  margin-bottom: 100px;
-}
-
 /* .summary {
   padding-top: 5px;
   position: absolute;
