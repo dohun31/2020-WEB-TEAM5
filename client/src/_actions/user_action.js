@@ -3,7 +3,7 @@ import { LOGIN_USER, REGISTER_USER } from "./types";
 
 export function loginUser(dataToSubmit) {
   const request = axios
-    .post("/api/user//login", dataToSubmit)
+    .post("/api/user/login", dataToSubmit)
     .then((res) => res.data);
 
   return {
@@ -13,7 +13,9 @@ export function loginUser(dataToSubmit) {
 }
 
 export function registerUser(dataToSubmit) {
-  const request = axios.post("/register", dataToSubmit).then((res) => res.data);
+  const request = axios
+    .post("/api/user/register", dataToSubmit)
+    .then((res) => res.data);
 
   return {
     type: REGISTER_USER,

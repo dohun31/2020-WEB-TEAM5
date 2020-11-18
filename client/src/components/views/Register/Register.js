@@ -7,15 +7,15 @@ function Register(props) {
 
   const [Id, setId] = useState("");
   const [Password, setPassword] = useState("");
-  const [Name, setName] = useState("");
+  const [Email, setEmail] = useState("");
   const [ConfirmPassword, setConfirmPassword] = useState("");
 
   const onIdHandler = (e) => {
     setId(e.currentTarget.value);
   };
 
-  const onNameHandler = (e) => {
-    setName(e.currentTarget.value);
+  const onEmailHandler = (e) => {
+    setEmail(e.currentTarget.value);
   };
 
   const onPasswordHandler = (e) => {
@@ -28,15 +28,19 @@ function Register(props) {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
+    console.log(Email, Id, Password);
     if (Password !== ConfirmPassword) {
+      console.log("비번 다름");
       return "비번 다름!";
+    } else {
+      console.log("okay");
     }
-    console.log(Id, Password);
     let body = {
       id: Id,
-      password: Password,
-      name: Name,
+      pw: Password,
+      email: Email,
     };
+    console.log(body);
 
     dispatch(registerUser(body)).then((res) => {
       if (res.payload.success) {
@@ -64,10 +68,10 @@ function Register(props) {
         }}
         onSubmit={onSubmitHandler}
       >
+        <label>Email</label>
+        <input type="email" value={Email} onChange={onEmailHandler} />
         <label>Id</label>
         <input type="text" value={Id} onChange={onIdHandler} />
-        <label>Name</label>
-        <input type="text" value={Name} onChange={onNameHandler} />
         <label>Password</label>
         <input type="password" value={Password} onChange={onPasswordHandler} />
         <label>Confirm Password</label>
