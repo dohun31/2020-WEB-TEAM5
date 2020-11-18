@@ -19,7 +19,12 @@
     "express-session": "^1.17.1",
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
+<<<<<<< HEAD
     "redux": "^4.0.5",
+=======
+    "nodemon": "^2.0.6",
+    "react-cookies": "^0.1.1",
+>>>>>>> cdd545a6d925bb041ebdc85070185fca17cdbddd
     "session-file-store": "^1.5.0"
   },
   "devDependencies": {

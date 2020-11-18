@@ -26,13 +26,14 @@ commentRouter.post('/get', async (req,res) => {
 })
 
 commentRouter.post('/upload', (req,res)=>{
-    const { userId , password, comment,movieId } = req.body;
-    db.query(`INSERT INTO comment (userId, password, movieId, content)
-    VALUES (?,?,?,?)`,[userId,password,movieId,comment],
+    const { comment , movieId} = req.body;
+    console.log(comment, req.body)
+    db.query(`INSERT INTO comment (movieId, content)
+    VALUES (?,?)`,[movieId,comment],
     (err,result) => {
       if(err){
         return res.json({success: false ,err : err})
-      }else{
+      }else{ 
         return res.json({success: true})
       }
     })
