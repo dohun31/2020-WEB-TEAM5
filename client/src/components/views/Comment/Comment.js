@@ -20,6 +20,7 @@ function Comment({ key, movieId }) {
   const onSubmit = (event) => {
     const values = {
       comment: comment,
+      movieId : movieId
     };
     event.preventDefault();
     axios.post("/api/comments/upload", values).then((value) => {
@@ -35,19 +36,15 @@ function Comment({ key, movieId }) {
     axios.post('/api/comments/get', {movieId})
     .then(result => {
        if(result.data.comments){
-         console.log(result.data.comments)
-         //setcommentList(result.data.comments);
+         //console.log(result.data.comments)
+         setcommentList(result.data.comments);
        }
     })
   }, [])
 
   return (
     <div className="comment">
-      <section className="history">
-      {commentList.map(comment => {
-          return <CommentList comment={comment}/>
-      })}  
-      </section>
+
       <section className="current">
         <form onSubmit={onSubmit}>
           <label>댓글달기</label>
@@ -61,6 +58,15 @@ function Comment({ key, movieId }) {
           <button onSubmit={onSubmit}>upload</button>
         </form>
       </section>
+
+
+      <section className="history">
+      {commentList.map(comment => {
+          return <CommentList comment={comment}/>
+      })}  
+      </section>
+
+
     </div>
   );
 }

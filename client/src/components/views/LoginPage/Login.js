@@ -23,9 +23,12 @@ class Login extends Component {
     axios
       .post(url, { id: this.state.id, pw: this.state.pw })
       .then((res) => {
+        console.log(res)
         if(res.data.success){
-          alert('로그인성공')
+          alert('로그인 성공')
           this.props.history.push('/home')
+        }else{
+          alert('로그인 실패')
         }
       })
       .catch((e) => {

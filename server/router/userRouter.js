@@ -50,7 +50,15 @@ userRouter.post('/register',(req,res)=>{
             return res.json({success: false, err: 'used-email'})
         }
         else{
-            bcrypt.hash(password, 10, function(err, hash) {
+            db.query('SELECT * FROM users where userID = ?',[userID],
+            (err,users2) => {
+                if(err){
+                    return res.json({success: false, err })
+                }
+                if(users2.length){
+                    return res.json({success: false, err :'used-id'})
+                }
+                bcrypt.hash(password, 10, function(err, hash) {
                 db.query('INSERT INTO users (email, userID, password)VALUES(?,?,?)',
                 [email, userID, hash ],
                 (err,results)=>{
@@ -59,7 +67,9 @@ userRouter.post('/register',(req,res)=>{
                     }
                     return res.json({success: true})
                 })
-            });
+                });
+
+            })
         }
     })
 })
