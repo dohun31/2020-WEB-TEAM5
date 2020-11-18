@@ -1,0 +1,17 @@
+input {
+  width: 150px;
+  margin: 3px 0;
+  outline: none;
+  text-align: center;
+}
+
+.Login {
+  margin: px;
+  width: 500px;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(116, 180, 80);
+}
