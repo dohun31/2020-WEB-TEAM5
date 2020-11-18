@@ -22,7 +22,7 @@ function Login(props) {
     console.log(Id, Password);
     let body = {
       id: Id,
-      password: Password,
+      pw: Password,
     };
 
     dispatch(loginUser(body)).then((res) => {
@@ -32,7 +32,6 @@ function Login(props) {
         alert("Error");
       }
     });
-
   };
 
   return (
