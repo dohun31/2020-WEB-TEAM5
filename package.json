@@ -19,10 +19,11 @@
     "express-session": "^1.17.1",
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
-    "nodemon": "^2.0.6",
+    "redux": "^4.0.5",
     "session-file-store": "^1.5.0"
   },
   "devDependencies": {
-    "http-proxy-middleware": "^1.0.6"
+    "http-proxy-middleware": "^1.0.6",
+    "nodemon": "^2.0.6"
   }
 }
