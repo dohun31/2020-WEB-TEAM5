@@ -17,7 +17,7 @@ app.use(cookieParser());
 
 db.connect((err) => {
     if(err){
-      console.log("no!!")
+      console.log("no!!🤕")
     }else{
       console.log("db is connected to MYSQL!!")
     }

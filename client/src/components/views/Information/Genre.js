@@ -2,10 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function Genre({ key, id, name }) {
-  return <li className="genre">{name}</li>;
+  return ( 
+    <div>
+      <li className="genre">{name}</li>
+    </div>
+  )
 }
 
 Genre.propType = {
+  key: PropTypes.number.isRequired,
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   overview: PropTypes.string.isRequired,

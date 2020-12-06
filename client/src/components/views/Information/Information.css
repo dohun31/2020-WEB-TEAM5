@@ -6,7 +6,7 @@
   margin: 0;
   align-items: center;
   justify-content: center;
-  background-color: rgb(250, 235, 185);
+  background-color: rgb(160, 156, 145);
 }
 
 .information .genre {
@@ -27,6 +27,7 @@
   width: 200px;
 }
 
+
 .information .comments {
   padding: 20px 0px;
   /* background-color: thistle; */
@@ -42,12 +43,33 @@
   /* background-color: gainsboro; */
 }
 
+
 .seasons .title,
 .seasons .date,
 .seasons .epcount {
   margin: 0px;
 }
 
+.seasons{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.season{
+  position: relative;
+  background-color: rgb(153, 150, 147);
+  display: inline;
+  width: 400px;
+  margin: 20px;
+  text-align:center;
+}
+
+.season .overview{
+  background-color: rgb(180, 180, 179);
+  margin: 0;
+}
+/*
 .seasons {
   align-items: center;
   margin: 0px;
@@ -58,9 +80,7 @@
   padding: 5px;
   width: 80%;
   border-radius: 20px;
-  /* background-color: rgb(243, 123, 123); */
 }
 
-#show {
-  width: 40%;
-}
+*/
+

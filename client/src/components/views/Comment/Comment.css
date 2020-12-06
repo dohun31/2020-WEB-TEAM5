@@ -1,0 +1,26 @@
+.divider{
+    height: 2px;
+    background-color: rgb(102, 100, 100);
+}
+
+.comment{
+    width: 100%;
+}
+
+.comment-form {
+    margin: 20px 0 20px 0;
+}
+
+.comment-form input{
+    width: 80%;
+}
+
+.comment-element{
+    display: flex;
+}
+
+.eiditBtn{
+    position: absolute;
+    right: 20px;
+    display: flex;
+}

@@ -1,5 +1,4 @@
 .navbar {
-  padding: 8px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -7,20 +6,27 @@
   color: white;
   font-size: 20px;
   font-weight: 1000;
+  height: 110px;
 }
 
 .menu {
+  padding: 0;
   list-style: none;
+  display: flex;
 }
 
-.login,
-.register {
-  padding: 0px 10px;
+.menu li{
+  padding: 10px;
 }
 
 .logreg {
   list-style: none;
   display: flex;
+  padding: 0;
+}
+
+.logreg li{
+  padding: 10px;
 }
 
 .navbar .title,

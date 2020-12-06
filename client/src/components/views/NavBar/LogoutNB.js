@@ -1,13 +1,20 @@
 function LogoutNB() {
   return (
     <nav className="navbar">
-      <a href="/" className="title">
-        WapProject
-      </a>
+      <div className="main">
+        <a href="/" className="title">
+            WapProject
+          </a>
+      </div>
       <ul className="menu">
         <li>
           <a href="/home" className="home">
-            Home
+            dramas 🍿
+          </a>
+        </li>
+        <li >
+          <a href="/movies" className="home">
+            movies 🎥
           </a>
         </li>
       </ul>

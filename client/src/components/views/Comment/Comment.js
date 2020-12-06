@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CommentList from "./CommentList.js";
-
-function User(id, comment) {
-  this.id = id;
-  this.comment = comment;
-}
+import "./Comment.css";
 
 function Comment({ key, movieId }) {
   console.log("movieId값은 ", movieId, "입니다.");
@@ -25,7 +21,11 @@ function Comment({ key, movieId }) {
     axios.post("/api/comments/upload", values).then((value) => {
       if (value.data.success) {
         setComment("");
-      } else {
+      } 
+      else {
+        if(value.data.err === 'notLogined'){
+          return alert("로그인 해주세요");
+        }
         alert("댓글 저장에 실패하였습니다.");
       }
     });
@@ -34,7 +34,6 @@ function Comment({ key, movieId }) {
   useEffect(() => {
     axios.post("/api/comments/get", { movieId }).then((result) => {
       if (result.data.comments) {
-        console.log(result.data.comments);
         setcommentList(result.data.comments);
       }
     });
@@ -42,7 +41,9 @@ function Comment({ key, movieId }) {
 
   return (
     <div className="comment">
-      <section className="current">
+      <div className="divider"></div>
+      
+      <section className="comment-form">
         <form onSubmit={onSubmit}>
           <label>댓글달기</label>
           <br></br>
@@ -55,12 +56,13 @@ function Comment({ key, movieId }) {
           <button onSubmit={onSubmit}>upload</button>
         </form>
       </section>
-
-      <section className="history">
-        {commentList.map((comment) => {
-          return <CommentList comment={comment} />;
+  
+      <section className="comment-list">
+        {commentList.map((value,index) => {
+          return <CommentList comment={value}/>;
         })}
       </section>
+
     </div>
   );
 }

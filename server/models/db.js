@@ -6,8 +6,8 @@ dotenv.config();
 module.exports = mysql.createConnection({
   host: "localhost",
   user: "root",
-  // password : 'dmswjddldldl12',
-  password: "123456",
+  password : 'dmswjddldldl12',
+  //password: "123456",
   database: "practice",
   port: "3307",
 });

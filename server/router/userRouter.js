@@ -75,6 +75,7 @@ userRouter.post("/register", (req, res) => {
 });
 
 userRouter.get("/auth", auth, (req, res) => {
+  //console.log(req.user)
   if (!req.user) {
     return res.json({ err: "nouser" });
   }
