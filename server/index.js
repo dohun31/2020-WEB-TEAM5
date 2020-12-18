@@ -4,7 +4,7 @@ const db = require("./models/db");
 const bodyParser = require('body-parser')
 const cookieParser = require("cookie-parser");
 
-const commentRouter = require("./router/comment");
+const commentRouter = require("./router/commentRouter");
 const userRouter = require("./router/userRouter");
 const auth = require("./middlewares/auth");
 

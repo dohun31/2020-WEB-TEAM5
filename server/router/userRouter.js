@@ -21,7 +21,6 @@ userRouter.post("/login", (req, res) => {
           if (!value) {
             return res.json({ success: false });
           }
-          console.log(value);
           const id = results[0].id;
           const token = jwt.sign({ token: id }, "secret");
           //  ?
@@ -42,35 +41,28 @@ userRouter.post("/login", (req, res) => {
 
 userRouter.post("/register", (req, res) => {
   const { email, id: userID, pw: password } = req.body;
-  db.query("SELECT * FROM users where email = ?", [email], (err, users) => {
+  console.log('회원가입')
+  db.query("SELECT * FROM users where email = ? OR userID = ?",
+   [email, userID], 
+   (err, users) => {
     if (users.length) {
-      return res.json({ success: false, err: "used-email" });
-    } else {
-      db.query(
-        "SELECT * FROM users where userID = ?",
-        [userID],
-        (err, users2) => {
-          if (err) {
-            return res.json({ success: false, err });
-          }
-          if (users2.length) {
-            return res.json({ success: false, err: "used-id" });
-          }
-          bcrypt.hash(password, 10, function (err, hash) {
-            db.query(
-              "INSERT INTO users (email, userID, password)VALUES(?,?,?)",
-              [email, userID, hash],
-              (err, results) => {
-                if (!results || err) {
-                  return res.json({ success: false, err });
-                }
-                return res.json({ success: true });
+      return res.json({ success: false, err: "used" });
+    } 
+    else {
+        bcrypt.hash(password, 10, function (err, hash) {
+          db.query(
+            "INSERT INTO users (email, userID, password)VALUES(?,?,?)",
+            [email, userID, hash],
+            (err, results) => {
+              if (!results || err) {
+                console.log(results)
+                return res.json({ success: false, err });
               }
-            );
-          });
-        }
-      );
-    }
+              return res.json({ success: true });
+            }
+          );
+        });
+      }
   });
 });
 
@@ -82,9 +74,9 @@ userRouter.get("/auth", auth, (req, res) => {
   return res.json({ user: req.user });
 });
 
-userRouter.post("/logout", (req, res) => {
+userRouter.get("/logout", (req, res) => {
   //console.log(req.cookies.jwt)
-  return res.cookie("id", "").json({ success: true });
+  return res.cookie("id", "").redirect('/home')
 });
 
 module.exports = userRouter;

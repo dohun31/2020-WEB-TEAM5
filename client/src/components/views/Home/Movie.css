@@ -43,6 +43,15 @@ body {
   display: lnline;
 }
 
+
+.page-button{
+  position: fixed;
+  bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+  width: 130px;
+}
+
 /* .summary {
   padding-top: 5px;
   position: absolute;

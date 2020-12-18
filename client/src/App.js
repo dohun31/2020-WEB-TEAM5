@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState} from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./components/views/NavBar/NavBar";
 import LandingPage from "./components/views/LandingPage/LandingPage";
@@ -7,11 +7,21 @@ import Register from "./components/views/Register/Register";
 import Home from "./components/views/Home/Home";
 import Information from "./components/views/Information/Information";
 import Auth from "./hoc/auth";
+import axios from 'axios';
 
 function App() {
+  const [auth, setauth] = useState(false)
+
+  axios.get('/api/user/auth')
+  .then(value=>{
+      if(value.data.user){
+        setauth(true);
+      }
+  })
+
   return (
     <div>
-      <NavBar />
+      <NavBar auth={auth}/>
       <Router>
         <div>
           <Switch>
@@ -24,6 +34,7 @@ function App() {
         </div>
       </Router>
     </div>
+    
   );
 }
 

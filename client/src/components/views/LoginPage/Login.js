@@ -28,6 +28,7 @@ function Login(props) {
     dispatch(loginUser(body)).then((res) => {
       if (res.payload.success) {
         props.history.push("/");
+        window.location.reload();
       } else {
         alert("Error");
       }

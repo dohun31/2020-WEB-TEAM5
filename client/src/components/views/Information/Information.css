@@ -6,7 +6,7 @@
   margin: 0;
   align-items: center;
   justify-content: center;
-  background-color: rgb(160, 156, 145);
+  background-color: rgb(235, 231, 223);
 }
 
 .information .genre {
@@ -58,7 +58,6 @@
 
 .season{
   position: relative;
-  background-color: rgb(153, 150, 147);
   display: inline;
   width: 400px;
   margin: 20px;
@@ -66,7 +65,7 @@
 }
 
 .season .overview{
-  background-color: rgb(180, 180, 179);
+  background-color: rgb(236, 236, 229);
   margin: 0;
 }
 /*

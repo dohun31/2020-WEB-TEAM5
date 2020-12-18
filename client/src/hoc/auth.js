@@ -1,10 +1,9 @@
-/* eslint-disable import/no-anonymous-default-export */
 import React, {useEffect} from 'react';
 import axios from 'axios';
 import {useDispatch} from 'react-redux';
 
-export default function(Component, Option){
-    console.log(Option)
+function auth(Component, Option){
+    
     function Authentication(){
         axios.get('/api/user/auth')
         .then(value=>{
@@ -17,6 +16,8 @@ export default function(Component, Option){
         return <Component></Component>
     }
 
-    return Authentication
+    return  Authentication
 }
 
+
+export default auth;

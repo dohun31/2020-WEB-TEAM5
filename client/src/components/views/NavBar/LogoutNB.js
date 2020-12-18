@@ -20,13 +20,13 @@ function LogoutNB() {
       </ul>
       <ul className="logreg">
         <li>
-          <a href="/login" className="login">
-            로그인
+          <a href="/mypage" className="login mypage">
+            mypage
           </a>
         </li>
         <li>
-          <a href="/register" className="register">
-            회원가입
+          <a href="/api/user/logout" className="register logout" >
+            logout
           </a>
         </li>
       </ul>

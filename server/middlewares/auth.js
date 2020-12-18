@@ -9,7 +9,7 @@ const auth = (req,res,next)=>{
       db.query('SELECT * FROM users where id = ?',[decoded],
       (err,results)=>{
         if(results){
-            console.log(results)
+            //console.log(results)
             const obj = {name : results[0].userID , id :  results[0].id};
             req.user = obj;
             return next();

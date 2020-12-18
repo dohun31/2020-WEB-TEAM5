@@ -9,19 +9,24 @@ function LoginNB() {
       <ul className="menu">
         <li>
           <a href="/home" className="home">
-            Home
+            dramas 🍿
+          </a>
+        </li>
+        <li >
+          <a href="/movies" className="home">
+            movies 🎥
           </a>
         </li>
       </ul>
       <ul className="logreg">
         <li>
-          <a href="/mypage" className="login">
-            마이페이지
+          <a href="/login" className="login">
+            login
           </a>
         </li>
         <li>
-          <a href="/logout" className="register">
-            로그아웃
+          <a href="/register" className="register">
+            register
           </a>
         </li>
       </ul>

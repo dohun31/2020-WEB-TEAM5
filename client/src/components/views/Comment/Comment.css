@@ -1,6 +1,6 @@
 .divider{
     height: 2px;
-    background-color: rgb(102, 100, 100);
+    background-color: rgb(173, 169, 169);
 }
 
 .comment{
@@ -9,18 +9,66 @@
 
 .comment-form {
     margin: 20px 0 20px 0;
+    text-align: center;
 }
 
 .comment-form input{
     width: 80%;
+    margin-top: 10px;
+    border: none;
+    height: 20px;
 }
 
 .comment-element{
     display: flex;
 }
 
-.eiditBtn{
+.comment-content{
+    position: relative;
+    display: flex;
+    margin: 14px ;
+    margin-left: 40px;
+}
+
+.comment-date{
+    margin-right: 10px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+
+
+.comment-edit-btn{
+    margin-right: 20px;
+    width: 20px;
+    height: 20px;
+    border: 0;
+    background-color: rgb(177, 168, 159);
+    border-radius: 70%;
+}
+
+.comment-edit-btn:hover{
+    background-color: rgb(248, 247, 247);
+    cursor: pointer;
+    transition: background-color .5s;
+    transition: transform .2s;
+}
+
+.eidit-box{
     position: absolute;
     right: 20px;
     display: flex;
+    margin-top: 20px;
+}
+
+.comment-edit{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.comment-edited-input{
+    margin-left: 40px;
+    width:  60%;
+    border: none;
 }

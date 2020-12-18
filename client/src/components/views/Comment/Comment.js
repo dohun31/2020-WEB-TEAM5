@@ -21,6 +21,7 @@ function Comment({ key, movieId }) {
     axios.post("/api/comments/upload", values).then((value) => {
       if (value.data.success) {
         setComment("");
+        window.location.reload();
       } 
       else {
         if(value.data.err === 'notLogined'){
@@ -59,7 +60,7 @@ function Comment({ key, movieId }) {
   
       <section className="comment-list">
         {commentList.map((value,index) => {
-          return <CommentList comment={value}/>;
+          return <CommentList key={index} comment={value}/>;
         })}
       </section>
 
