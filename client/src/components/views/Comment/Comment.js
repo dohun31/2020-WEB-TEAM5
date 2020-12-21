@@ -4,7 +4,6 @@ import CommentList from "./CommentList.js";
 import "./Comment.css";
 
 function Comment({ key, movieId }) {
-  console.log("movieId값은 ", movieId, "입니다.");
   const [comment, setComment] = useState("");
   const [commentList, setcommentList] = useState([]);
 
@@ -22,9 +21,8 @@ function Comment({ key, movieId }) {
       if (value.data.success) {
         setComment("");
         window.location.reload();
-      } 
-      else {
-        if(value.data.err === 'notLogined'){
+      } else {
+        if (value.data.err === "notLogined") {
           return alert("로그인 해주세요");
         }
         alert("댓글 저장에 실패하였습니다.");
@@ -43,27 +41,25 @@ function Comment({ key, movieId }) {
   return (
     <div className="comment">
       <div className="divider"></div>
-      
+      <section className="comment-list">
+        {commentList.map((value, index) => {
+          return <CommentList key={index} comment={value} />;
+        })}
+      </section>
       <section className="comment-form">
         <form onSubmit={onSubmit}>
           <label>댓글달기</label>
-          <br></br>
           <input
             value={comment}
             onChange={onCommentHandler}
             type="text"
             required
           ></input>
-          <button onSubmit={onSubmit}>upload</button>
+          <button type="submit" onSubmit={onSubmit}>
+            upload
+          </button>
         </form>
       </section>
-  
-      <section className="comment-list">
-        {commentList.map((value,index) => {
-          return <CommentList key={index} comment={value}/>;
-        })}
-      </section>
-
     </div>
   );
 }

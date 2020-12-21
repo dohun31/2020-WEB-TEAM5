@@ -7,11 +7,11 @@ import "./Information.css";
 
 class Information extends Component {
   state = {
-    id : 0,
+    id: 0,
     isLoading: true,
     Information: [],
     seasons: [],
-    genres: []
+    genres: [],
   };
 
   getInfo = async (id) => {
@@ -19,7 +19,7 @@ class Information extends Component {
       `https://api.themoviedb.org/3/tv/${id}?api_key=57ff67b493d54292a7b8a96ca3e4c5a9&language=ko-KR`
     );
     this.setState({
-      id:id,
+      id: id,
       isLoading: false,
       Information: Information.data,
       seasons: Information.data.seasons,
@@ -43,42 +43,48 @@ class Information extends Component {
           <div className="loader">
             <span className="text">Loading...</span>
           </div>
-        ): (
+        ) : (
           <div className="information">
-            <div className="origin">
-              <h1 id="title" className="title">
+            <div className="drama">
+              <div className="origin">
+                <h1 id="title" className="title">
                   {Information.name}
-              </h1>
-              <h3 className="originalTitle">{Information.original_name}</h3>
-              <div>
-                {genres.map((genre) => {
-                    return <Genre key={genre.id} id={genre.id} name={genre.name} />;
+                </h1>
+                <h3 className="originalTitle">{Information.original_name}</h3>
+                <div>
+                  {genres.map((genre) => {
+                    return (
+                      <Genre key={genre.id} id={genre.id} name={genre.name} />
+                    );
+                  })}
+                </div>
+                <img
+                  id="titleimg"
+                  className="image"
+                  src={ImgSrc}
+                  alt="poster"
+                ></img>
+                <p className="date">{Information.first_air_date}</p>
+                <p className="summary">{Information.overview}</p>
+              </div>
+              <div className="seasons">
+                {seasons.map((season, index) => {
+                  return (
+                    <Season
+                      key={index}
+                      id={season.id}
+                      date={season.air_date}
+                      title={season.name}
+                      count={season.episode_count}
+                      overview={season.overview}
+                      poster={season.poster_path}
+                      number={season.season_number}
+                    />
+                  );
                 })}
               </div>
-              <img id="titleimg" className="image" src={ImgSrc} alt="poster"></img>
-              <p className="date">{Information.first_air_date}</p>
-              <p className="summary">{Information.overview}</p>
             </div>
-            <div className="seasons">
-              {seasons.map((season, index) => {
-                return (
-                  <Season
-                    key={index}
-                    id={season.id}
-                    date={season.air_date}
-                    title={season.name}
-                    count={season.episode_count}
-                    overview={season.overview}
-                    poster={season.poster_path}
-                    number={season.season_number}
-                  />
-                );
-              })}
-            </div>
-
-            
-            <Comment key={id} movieId = {id}></Comment>
-            
+            <Comment className="comment" key={id} movieId={id}></Comment>
           </div>
         )}
       </section>

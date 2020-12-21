@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Register.css";
 import { useDispatch } from "react-redux";
 import { loginUser, registerUser } from "../../../_actions/user_action";
 
@@ -28,9 +29,8 @@ function Register(props) {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    console.log(Email, Id, Password);
     if (Password !== ConfirmPassword) {
-      console.log("비번 다름");
+      alert("비밀번호가 다릅니다.");
       return "비번 다름!";
     } else {
       console.log("okay");
@@ -52,22 +52,9 @@ function Register(props) {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-        height: "100vh",
-      }}
-    >
-      <form
-        style={{
-          display: "flex",
-          flexDirection: "column",
-        }}
-        onSubmit={onSubmitHandler}
-      >
+    <div className="registerpage">
+      <form className="form" onSubmit={onSubmitHandler}>
+        <h1>REGISTER</h1>
         <label>Email</label>
         <input type="email" value={Email} onChange={onEmailHandler} />
         <label>Id</label>
@@ -81,7 +68,7 @@ function Register(props) {
           onChange={onConfirmPWHandler}
         />
         <br />
-        <button type="submit">회원가입</button>
+        <button type="submit">Register</button>
       </form>
     </div>
   );

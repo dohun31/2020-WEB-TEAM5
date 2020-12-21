@@ -1,38 +1,47 @@
+body {
+  background-color: #e7e7e7;
+}
 .navbar {
+  background-color: #aaa7a7;
+  padding: 10px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: black;
-  color: white;
-  font-size: 20px;
-  font-weight: 1000;
-  height: 110px;
-}
-
-.menu {
-  padding: 0;
-  list-style: none;
-  display: flex;
-}
-
-.menu li{
-  padding: 10px;
-}
-
-.logreg {
-  list-style: none;
-  display: flex;
-  padding: 0;
-}
-
-.logreg li{
-  padding: 10px;
+  box-shadow: 0px 2px 4px rgba(253, 252, 252, 0.08);
 }
 
 .navbar .title,
 .navbar .login,
 .navbar .register,
 .navbar .home {
+  font-size: 20px;
+  font-weight: bold;
   text-decoration: none;
+  color: black;
+}
+
+.menu,
+.logreg {
+  list-style: none;
+  display: flex;
+}
+
+a {
+  padding: 0 20px;
+}
+
+.main .title,
+.logreg .login,
+.logreg .register {
+  margin: 0 5px 0 5px;
+  padding: 10px;
   color: white;
+  background-color: rgb(12, 12, 12);
+  border-radius: 5px;
+}
+
+.main .title:hover,
+.logreg .login:hover,
+.logreg .register:hover {
+  background-color: #464444;
 }

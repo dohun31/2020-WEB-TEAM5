@@ -3,18 +3,18 @@ function LogoutNB() {
     <nav className="navbar">
       <div className="main">
         <a href="/" className="title">
-            WapProject
-          </a>
+          WapProject
+        </a>
       </div>
       <ul className="menu">
         <li>
           <a href="/home" className="home">
-            dramas 🍿
+            dramas🍿
           </a>
         </li>
-        <li >
+        <li>
           <a href="/movies" className="home">
-            movies 🎥
+            movies🎥
           </a>
         </li>
       </ul>
@@ -25,7 +25,7 @@ function LogoutNB() {
           </a>
         </li>
         <li>
-          <a href="/api/user/logout" className="register logout" >
+          <a href="/api/user/logout" className="register logout">
             logout
           </a>
         </li>

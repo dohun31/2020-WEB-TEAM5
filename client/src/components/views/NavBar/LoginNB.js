@@ -2,19 +2,19 @@ function LoginNB() {
   return (
     <nav className="navbar">
       <div className="main">
-      <a href="/" className="title">
+        <a href="/" className="title">
           WapProject
         </a>
       </div>
       <ul className="menu">
         <li>
           <a href="/home" className="home">
-            dramas 🍿
+            dramas🍿
           </a>
         </li>
-        <li >
+        <li>
           <a href="/movies" className="home">
-            movies 🎥
+            movies🎥
           </a>
         </li>
       </ul>
