@@ -7,6 +7,7 @@ const auth = require("../middlewares/auth");
 userRouter = express.Router();
 
 userRouter.post("/login", (req, res) => {
+  console.log(req.body)
   const { id: userID, pw: password } = req.body;
   try {
     db.query(
@@ -18,12 +19,12 @@ userRouter.post("/login", (req, res) => {
         }
         const hashedPassword = results[0].password;
         bcrypt.compare(password, hashedPassword).then(function (value) {
+          console.log(value)
           if (!value) {
             return res.json({ success: false });
           }
           const id = results[0].id;
           const token = jwt.sign({ token: id }, "secret");
-          //  ?
           const cookieOptions = {
             expires: new Date(Date.now() + 10 ** 3 * 60 * 60 * 60),
             httpOnly: true,
@@ -35,6 +36,7 @@ userRouter.post("/login", (req, res) => {
       }
     );
   } catch (err) {
+    console.log(err)
     return res.json({ success: false, err });
   }
 });
