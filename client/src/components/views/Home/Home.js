@@ -1,53 +1,49 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Movie from "./Movie";
+import Drama from "./Drama";
 import "./Movie.css";
 
 class Test extends Component {
   state = {
-    movies: [],
-    page:1
+    dramas: [],
+    page: 1,
   };
 
-  getMovie = async (page) => {
-    const Movies = await axios.get(
+  getDrama = async (page) => {
+    const Dramas = await axios.get(
       `https://api.themoviedb.org/3/tv/popular?api_key=57ff67b493d54292a7b8a96ca3e4c5a9&with_networks=213&language=ko&page=${page}`
     );
-    const Movie = [...Movies.data.results]; // ...Movies2.data.results
-    this.setState({ movies: Movie });
+    const Drama = [...Dramas.data.results]; // ...Movies2.data.results
+    this.setState({ dramas: Drama });
   };
 
   pvPage = async () => {
-    if(this.state.page > 1){
-      await this.setState({page: this.state.page-1})
-      this.getMovie(this.state.page);
+    if (this.state.page > 1) {
+      await this.setState({ page: this.state.page - 1 });
+      this.getDrama(this.state.page);
     }
-  }
+  };
   nextPage = async () => {
-    console.log(this.state.page)
-    await this.setState({page: this.state.page+1})
-    console.log(this.state.page)
-    this.getMovie(this.state.page);
-  }
+    await this.setState({ page: this.state.page + 1 });
+    console.log(this.state.page);
+    this.getDrama(this.state.page);
+  };
 
   componentDidMount() {
-    this.getMovie();
+    this.getDrama();
   }
 
   render() {
-    const { movies, page} = this.state;
+    const { dramas, page } = this.state;
     return (
       <div className="Netflixs">
-        {movies.map((movie, index) => {
+        {dramas.map((drama, index) => {
           return (
-            <Movie
+            <Drama
               key={index}
-              id={movie.id}
-              year={movie.release_date}
-              title={movie.name}
-              summary={movie.overview}
-              poster={movie.poster_path}
-              state={this.state.mode}
+              id={drama.id}
+              title={drama.name}
+              poster={drama.poster_path}
             />
           );
         })}
