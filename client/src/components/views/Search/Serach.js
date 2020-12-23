@@ -5,10 +5,6 @@ import SearchResult from "../Search/SearchResualt"
 import "./Search.css"
 
 function Serach(props) {
-    axios.get('/api/info')
-    .then(value=>{
-        console.log("11", value)
-    })
     const [Search, setSearch] = useState('')
     const [Tag, setTag] = useState('movie')
     const [Infos, setInfos] = useState([])
@@ -39,8 +35,8 @@ function Serach(props) {
             <form className="search-box" onSubmit={onSubmitHandler} > 
                 <input className="search-bar" required name="search" onChange={handleSearch}></input>
                 <select name="tag" onChange={handleTag}>
-                    <option value="movie">영화</option>
                     <option value="tv">드라마</option>
+                    <option value="movie">영화</option>
                     <option value="multi">영화,드리마</option>
                 </select>
                 <button>검색</button>
