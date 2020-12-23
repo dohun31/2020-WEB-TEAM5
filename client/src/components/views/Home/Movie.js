@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Drama from "./Drama";
+import Movie2 from "./Movie2";
 import "./Movie.css";
 
 class Test extends Component {
@@ -40,7 +40,7 @@ class Test extends Component {
       <div className="Netflixs">
         {movies.map((movie, index) => {
           return (
-            <Drama
+            <Movie2
               key={index}
               id={movie.id}
               title={movie.title}

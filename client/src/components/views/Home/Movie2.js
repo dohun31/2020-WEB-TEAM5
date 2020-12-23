@@ -1,64 +1,25 @@
-import React, { Component } from "react";
-import axios from "axios";
-import Movie from "./Drama";
+import React from "react";
+import PropTypes from "prop-types";
 import "./Movie.css";
+import { Link } from "react-router-dom";
 
-class Movie extends Component {
-  state = {
-    movies: [],
-    page: 1,
-  };
-
-  getMovie = async (page) => {
-    const Movies = await axios.get(
-      `https://api.themoviedb.org/3/movie/popular?api_key=57ff67b493d54292a7b8a96ca3e4c5a9&language=ko-KR&${page}`
-    );
-    const Movie = [...Movies.data.results]; // ...Movies2.data.results
-    this.setState({ movies: Movie });
-  };
-
-  pvPage = async () => {
-    if (this.state.page > 1) {
-      await this.setState({ page: this.state.page - 1 });
-      this.getMovie(this.state.page);
-    }
-  };
-  nextPage = async () => {
-    console.log(this.state.page);
-    await this.setState({ page: this.state.page + 1 });
-    console.log(this.state.page);
-    this.getMovie(this.state.page);
-  };
-
-  componentDidMount() {
-    this.getMovie();
-  }
-
-  render() {
-    const { movies, page } = this.state;
-    return (
-      <div className="Netflixs">
-        {movies.map((movie, index) => {
-          return (
-            <Movie
-              key={index}
-              id={movie.id}
-              year={movie.release_date}
-              title={movie.name}
-              summary={movie.overview}
-              poster={movie.poster_path}
-              state={this.state.mode}
-            />
-          );
-        })}
-        <div className="page-button">
-          <button onClick={this.pvPage}>이전</button>
-          <div>{page}</div>
-          <button onClick={this.nextPage}>다음</button>
-        </div>
-      </div>
-    );
-  }
+function Movie2({ key, id, title, poster }) {
+  const ImgSrc = "https://image.tmdb.org/t/p/w500" + poster;
+  return (
+    <div className="Netflix">
+      <h5 className="title">{title}</h5>
+      <Link to={`information/movie/${id}`}>
+        <img className="image" src={ImgSrc} alt={title} title={title}></img>
+      </Link>
+    </div>
+  );
 }
 
-export default Movie;
+Movie2.propType = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  summary: PropTypes.string.isRequired,
+  poster: PropTypes.string.isRequired,
+};
+
+export default Movie2;

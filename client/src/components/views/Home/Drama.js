@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 
 function Drama({ key, id, title, poster }) {
   const ImgSrc = "https://image.tmdb.org/t/p/w500" + poster;
+  const selector = "drama";
   return (
     <div className="Netflix">
       <h5 className="title">{title}</h5>
-      <Link to={`information/${id}`}>
+      <Link to={`information/${selector}/${id}`}>
         <img className="image" src={ImgSrc} alt={title} title={title}></img>
       </Link>
     </div>
