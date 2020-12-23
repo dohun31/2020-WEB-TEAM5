@@ -75,21 +75,19 @@ const CommentList = ({ comment }) => {
     );
   } else {
     content = (
-      <div>
-        <form className="comment-edit">
-          <input
-            className="comment-edited-input"
-            name="editedComment"
-            value={editedComment}
-            onChange={editedCommentHandler}
-          ></input>
-          <div className="editBtn-2">
-            <button onClick={postEditComment}>수정하기</button>
-            <button onClick={editComment}>수정취소</button>
-            <button onClick={deleteComment}>삭제하기</button>
-          </div>
-        </form>
-      </div>
+      <form className="comment-edit">
+        <input
+          className="comment-edited-input"
+          name="editedComment"
+          value={editedComment}
+          onChange={editedCommentHandler}
+        ></input>
+        <div className="editBtn-2">
+          <button onClick={postEditComment}>수정하기</button>
+          <button onClick={editComment}>수정취소</button>
+          <button onClick={deleteComment}>삭제하기</button>
+        </div>
+      </form>
     );
   }
 

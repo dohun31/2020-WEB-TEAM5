@@ -48,9 +48,13 @@ class Test extends Component {
           );
         })}
         <div className="page-button">
-          <button onClick={this.pvPage}>이전</button>
+          <button type="button" onClick={this.pvPage}>
+            이전
+          </button>
           <div>{page}</div>
-          <button onClick={this.nextPage}>다음</button>
+          <button type="button" onClick={this.nextPage}>
+            다음
+          </button>
         </div>
       </div>
     );
