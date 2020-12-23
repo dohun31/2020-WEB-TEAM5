@@ -27,12 +27,12 @@ function App() {
       <NavBar auth={auth}/>
       <Router> 
         <div>
-          <Switch>
+          <Switch> 
             <Route exact path="/" component={Home} />
+            <Route exact path="/mypage" component={Mypage} />
             <Route exact path="/search" component={Serach} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
-            <Route exact path="/mypage" component={Mypage} />
             <Route exact path="/home" component={Auth(Home, false)} />
             <Route exact path="/information/:id" component={Information} />
           </Switch>

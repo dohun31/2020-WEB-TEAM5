@@ -1,0 +1,64 @@
+body , html{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(204, 204, 204);
+    width: 100%;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.userinfo-container{
+    background-color:rgb(255, 247, 236);
+    margin-bottom: 100px;
+    width: 70%;
+    position: relative;
+    display: flex;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    box-shadow: 0 1px 50px 0 rgba(22, 19, 19, 0.08);
+}
+
+.userinfo-container h4{
+    text-transform: uppercase;
+}
+
+.userinfo-container .left{
+    background: linear-gradient(to right,#414040,#686868);
+    border-radius: 20px 0 0 20px;
+    width: 30%;
+    position: relative;
+    left: 0;
+}
+
+.userinfo-container .right{
+    width: 70%;
+    padding: 20px;
+}
+
+.info_data,
+.info2_data
+{
+    background-color: #8a8a8a;
+    display: flex;
+    justify-content: space-between; 
+}
+
+
+.info_data .data,
+.info2_data .data
+{
+    margin: 20px;
+}
+
+.comment-info .user-comments{
+    margin-bottom: 20px;
+}
+
+.comment-info .user-comments a{
+    text-decoration: none;
+    color: #000000;
+}
