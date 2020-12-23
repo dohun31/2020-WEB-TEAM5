@@ -5,7 +5,10 @@ import LandingPage from "./components/views/LandingPage/LandingPage";
 import Login from "./components/views/LoginPage/Login";
 import Register from "./components/views/Register/Register";
 import Home from "./components/views/Home/Home";
+import Serach from "./components/views/Search/Serach";
 import Information from "./components/views/Information/Information";
+import Mypage from "./components/views/Mypage/Mypage";
+
 import Auth from "./hoc/auth";
 import axios from 'axios';
 
@@ -22,12 +25,14 @@ function App() {
   return (
     <div>
       <NavBar auth={auth}/>
-      <Router>
+      <Router> 
         <div>
           <Switch>
-            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/search" component={Serach} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
+            <Route exact path="/mypage" component={Mypage} />
             <Route exact path="/home" component={Auth(Home, false)} />
             <Route exact path="/information/:id" component={Information} />
           </Switch>

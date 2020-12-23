@@ -6,7 +6,7 @@ import "./Movie.css";
 class Test extends Component {
   state = {
     movies: [],
-    page:1
+    page:1,
   };
 
   getMovie = async (page) => {
@@ -15,7 +15,7 @@ class Test extends Component {
     );
     const Movie = [...Movies.data.results]; // ...Movies2.data.results
     this.setState({ movies: Movie });
-  };
+  };  
 
   pvPage = async () => {
     if(this.state.page > 1){
@@ -35,7 +35,7 @@ class Test extends Component {
   }
 
   render() {
-    const { movies, page} = this.state;
+    const { movies, page, API} = this.state;
     return (
       <div className="Netflixs">
         {movies.map((movie, index) => {

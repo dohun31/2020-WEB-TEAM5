@@ -9,13 +9,22 @@
   height: 110px;
 }
 
+.navbar-icon{
+  font-size: 25px;
+  position: relative;
+  left: 20px;
+}
+
 .menu {
   padding: 0;
   list-style: none;
   display: flex;
+  position: relative;
+  left: 40px;
 }
 
 .menu li{
+  text-decoration: none;
   padding: 10px;
 }
 
@@ -29,10 +38,18 @@
   padding: 10px;
 }
 
+
 .navbar .title,
 .navbar .login,
 .navbar .register,
-.navbar .home {
+.navbar .home,
+.navbar .search,
+.logout, .mypage
+{
   text-decoration: none;
+  color: white;
+}
+
+.search-icon{
   color: white;
 }

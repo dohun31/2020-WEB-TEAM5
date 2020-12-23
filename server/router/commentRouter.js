@@ -20,7 +20,6 @@ commentRouter.post('/get', async (req,res) => {
       })}catch(err){
         return res.json({success: false, err : err})
       }
-    
     }else{
       return  res.json({success: false ,err : 'noMovie'})
     }
@@ -55,10 +54,10 @@ commentRouter.post('/delete',auth ,(req,res)=>{
   db.query('SELECT * FROM comment where id=?',[commentID],
   (err,results)=>{
     if(err){
+      console.log(err)
       return res.status(203).json({success : false,err : "err"})
     }
-    
-    if(results[0].userId == user.name ){
+    if(results[0].userID == user.name ){
       db.query('DELETE FROM comment WHERE id=?',[commentID],
       (err,value)=>{
         if(err){
@@ -78,11 +77,11 @@ commentRouter.post('/edit', auth, (req,res)=>{
   }
   db.query('SELECT * FROM comment where id=?',[id],
   (err, result)=>{
-    if(result[0].userId != user.name){
+    if(result[0].userID != user.name){
       return res.status(200).json({success : false, err:'wrongUser'});
     }
-    db.query('UPDATE comment SET content =? , date = ? where id =?',
-    [content, new Date() ,id],
+    db.query('UPDATE comment SET content =?  where id =?',
+    [content ,id],
     (err, result)=>{
       if(err){
         console.log(err)
