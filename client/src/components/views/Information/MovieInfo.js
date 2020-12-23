@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Comment from "../Comment/Comment";
-import Genre from "./Genre";
-import Season from "./Season";
 import axios from "axios";
 
 function MovieInfo({ id }) {
   const [info, setInfo] = useState([]);
   const [isLoading, setLoading] = useState();
+  const [genres, setGenre] = useState([]);
 
   useEffect(() => {
     const fetchInfo = async () => {
@@ -16,6 +15,7 @@ function MovieInfo({ id }) {
           `https://api.themoviedb.org/3/movie/${id}?api_key=57ff67b493d54292a7b8a96ca3e4c5a9&language=ko-KR`
         );
         setInfo(res.data);
+        setGenre(res.data.genres);
       } catch (e) {}
       setLoading(false);
     };
@@ -36,6 +36,11 @@ function MovieInfo({ id }) {
                 {info.title}
               </h1>
               <h3 className="originalTitle">{info.original_title}</h3>
+              <div>
+                {genres.map((genre) => {
+                  return <div>{genre.name}</div>;
+                })}
+              </div>
               <img
                 id="titleimg"
                 className="image"

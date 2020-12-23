@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import axios from "axios";
 import Comment from "../Comment/Comment";
-import Genre from "./Genre";
 import Season from "./Season";
 
 function DramaInfo({ id }) {
@@ -47,9 +45,7 @@ function DramaInfo({ id }) {
               <h3 className="originalTitle">{info.original_name}</h3>
               <div>
                 {genres.map((genre) => {
-                  return (
-                    <Genre key={genre.id} id={genre.id} name={genre.name} />
-                  );
+                  return <div>{genre.name}</div>;
                 })}
               </div>
               <img
