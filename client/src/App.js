@@ -7,6 +7,7 @@ import Register from "./components/views/Register/Register";
 import Home from "./components/views/Home/Home";
 import Information from "./components/views/Information/Information";
 import Movie from "./components/views/Home/Movie";
+import Mypage from "./components/views/Mypage/Mypage";
 import Auth from "./hoc/auth";
 import axios from "axios";
 
@@ -35,6 +36,7 @@ function App() {
               path="/information/:select/:id"
               component={Information}
             />
+            <Route exact path="/mypage" component={Mypage} />
           </Switch>
         </div>
       </Router>

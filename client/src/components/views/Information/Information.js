@@ -1,7 +1,6 @@
 import axios from "axios";
 import Season from "./Season";
 import React, { Component } from "react";
-import Genre from "./Genre";
 import Comment from "../Comment/Comment";
 import "./Information.css";
 import Movie2 from "../Home/Movie2";
