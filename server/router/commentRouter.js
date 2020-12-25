@@ -8,7 +8,11 @@ commentRouter.post('/get', async (req,res) => {
     const movieId = req.body.movieId;
     if(movieId){
       try{
-      db.query(`SELECT * FROM comment where movieId = ? ORDER BY date DESC`,
+      db.query(`
+      SELECT * FROM comment 
+      where movieID = ? 
+      AND commentID is NULL
+      ORDER BY date DESC`,
       // 시간 내림차순으로 가져오기 (마지막 올린 순으로)
       [movieId],
       (err,results)=>{
@@ -25,14 +29,44 @@ commentRouter.post('/get', async (req,res) => {
     }
 })
 
+commentRouter.post("/reply/get", (req, res) => {
+  console.log(req.body)
+  const commentId = req.body.commentId;
+  console.log(commentId)
+  try{
+    db.query(`
+     SELECT * FROM comment 
+     where commentID = ?
+     ORDER BY date DESC`,
+    // 시간 내림차순으로 가져오기 (마지막 올린 순으로)
+    [commentId],
+    (err,results)=>{
+      if(err){
+        console.log(err)
+        return res.json({success: false})
+      }
+      console.log( results)
+      return res.json({success : true, replyComments : results })
+    })}catch(err){
+      return res.json({success: false, err : err})
+    }
+})
+
 commentRouter.post('/upload',auth, (req,res)=>{
     const { comment , movieId} = req.body;
+
+    let commentId = null;
+    if(req.body.replyComment){
+      commentId = req.body.replyComment;
+    }
+
     if(!req.user){
       return res.json({success: false ,err : 'notLogined'})
     }
     
-    db.query(`INSERT INTO comment (userId, movieId, content,date)
-    VALUES (?,?,?,?)`,[req.user.name,movieId,comment, new Date()],
+    db.query(`INSERT INTO comment (userId, movieId, content,date, commentID)
+    VALUES (?,?,?,?,?)`,
+    [req.user.name,movieId,comment, new Date(),commentId],
     (err,result) => {
       if(err){
         console.log(err)

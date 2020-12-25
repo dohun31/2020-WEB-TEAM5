@@ -1,4 +1,30 @@
-import React , {useState, useEffect }from 'react'
+import React, { useEffect, useState } from "react";
+
+
+function Mypage(){
+
+    return(
+        <div></div>
+    )
+}
+        
+export default Mypage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*import React , {useState, useEffect }from 'react'
 import axios from "axios";
 import "./Mypage.css"
 
@@ -21,11 +47,7 @@ function Mypage() {
     }, [])
 
 
-    /*
-            Object.keys(commentInfo).map((key, index)=>{
-                console.log(commentInfo[key])
-            })
-    */
+
     return (
         <div>
             <div className="userinfo-container">
@@ -77,7 +99,9 @@ function Mypage() {
     )
 }
 
-export default Mypage
+export default Mypage*/
+
+
 
 /*
                           <div className="data comment-info">

@@ -1,0 +1,26 @@
+.reply-comment-container{
+   
+}
+
+.reply-comment-element{
+    display: flex;
+}
+
+
+.reply-comment-element .reply-comment-content{
+    display: flex;
+    margin-bottom: 10px;
+    position: relative;
+    left: 50px;
+}
+
+
+.reply-comment-element .reply-eidit-box{
+    position: absolute;
+    right: 10%;
+    font-size: 13px;
+}
+
+.comment-date{
+    margin-right: 10px;
+}
