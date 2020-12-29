@@ -1,0 +1,36 @@
+{
+  "name": "wap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/index.js",
+    "dev": "concurrently \"npm run start\" \"npm run start --prefix client"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "bcrypt": "^5.0.0",
+    "concurrently": "^5.3.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.6",
+    "react-cookies": "^0.1.1",
+    "react-moment": "^1.0.0",
+    "redux": "^4.0.5",
+    "session-file-store": "^1.5.0"
+  },
+  "devDependencies": {
+    "http-proxy-middleware": "^1.0.6",
+    "nodemon": "^2.0.6"
+  }
+}

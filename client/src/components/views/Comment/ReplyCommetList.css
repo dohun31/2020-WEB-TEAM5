@@ -1,0 +1,41 @@
+.reply-comment-element {
+  display: flex;
+  position: relative;
+  left: 50px;
+  background-color: rgb(250, 249, 249);
+  margin: 10px 0;
+  justify-content: space-around;
+}
+
+.reply-comment-element .reply-comment-content {
+  display: flex;
+  margin-bottom: 10px;
+  position: relative;
+  left: 30px;
+}
+
+.reply-comment-element .reply-eidit-box {
+  margin: 0 10px;
+  margin-top: 30px;
+  display: flex;
+  padding-bottom: 10px;
+}
+
+.comment-reply-btn {
+  border: 0;
+  background-color: #191919;
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  color: white;
+  border-radius: 24px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.comment-reply-btn:hover {
+  background-color: #85858a;
+  -webkit-transition: background-color 1000ms linear;
+  -ms-transition: background-color 1000ms linear;
+  transition: background-color 25ms linear;
+}

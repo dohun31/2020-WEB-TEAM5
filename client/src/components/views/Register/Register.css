@@ -1,0 +1,63 @@
+.registerpage .form {
+  width: 100vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #c0bdbd;
+  text-align: center;
+}
+
+.form h1 {
+  color: #1b1b1b;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.form input[type="email"],
+.form input[type="text"],
+.form input[type="password"] {
+  border: 0;
+  background-color: #c0bdbd;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #000000;
+  padding: 14px 10px;
+  width: 200px;
+  color: #ffffff;
+  outline: none;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+
+.form input[type="email"]:focus,
+.form input[type="text"]:focus,
+.form input[type="password"]:focus {
+  width: 280px;
+  border-color: #ffffff;
+}
+
+label {
+  color: rgb(116, 116, 116);
+  font-weight: bold;
+}
+
+.form button[type="submit"] {
+  border: 0;
+  background-color: #191919;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #ffffff;
+  padding: 14px 40px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.form button[type="submit"]:hover {
+  background-color: rgb(245, 55, 55);
+}

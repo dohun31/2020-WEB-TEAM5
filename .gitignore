@@ -1,0 +1,6 @@
+
+node_modules
+sessions
+server/public
+# Local Netlify folder
+.netlify
